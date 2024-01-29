@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: biosfera
-        image: marioraulino/biosfera:v1
+        image: marioraulino/biosfera:v2
         ports:
         - containerPort: 80
 ---
