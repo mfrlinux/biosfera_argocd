@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: biosfera-argo-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/mfrlinux/biosfera_argocd.git
+    targetRevision: HEAD
+    path: manifest
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: biosfera
+  
+syncPolicy
+  syncOptions:
+  - CreateNamespace=true
+
+  automated:
+    selfHeal: true
+    prune: true
